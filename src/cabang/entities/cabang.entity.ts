@@ -1,36 +1,16 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Timestamp } from 'typeorm';
+import { BaseEntity } from '../../base/base_entity.entity';
 
 const idType = Number;
 
-export class Cabang {
+export class Cabang extends BaseEntity {
   @ApiProperty({
     type: idType,
   })
-  id: number | string;
+  id: number;
   @ApiProperty({
     type: String,
-    example: 'cabang1',
+    example: 'Cabang 1',
   })
   cabang: string;
-  @ApiProperty({
-    type: Number,
-    example: '1',
-  })
-  createdBy: number;
-  @ApiProperty({
-    type: Timestamp,
-    example: new Date(),
-  })
-  createdAt: Timestamp;
-  @ApiProperty({
-    type: Number,
-    example: '1',
-  })
-  updatedBy: number;
-  @ApiProperty({
-    type: Timestamp,
-    example: new Date(),
-  })
-  updatedAt: Timestamp;
 }
