@@ -33,9 +33,22 @@ services:
   api:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile      
     ports:
       - ${APP_PORT}:${APP_PORT}
+    env_file:
+      - .env.docker      
+    environment:
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      DATABASE_NAME: ${DATABASE_NAME}
+      NODE_ENV: docker
+    depends_on:
+      - postgres
+    volumes:
+      - .env.docker:/usr/src/app/.env     
 
 volumes:
   boilerplate-db:

@@ -12,7 +12,11 @@ export class CabangService extends BaseService<Cabang> {
   }
 
   create(createCabangDto: CreateCabangDto): Promise<Cabang> {
-    return Promise.resolve(this.cabangRepository.create(createCabangDto));
+    return this.cabangRepository.createEntity({
+      name: createCabangDto.name,
+      createdBy: createCabangDto.createdBy,
+      createdAt: createCabangDto.createdAt,
+    });
   }
 
   findAll(): Promise<Cabang[]> {

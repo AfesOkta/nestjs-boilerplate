@@ -27,7 +27,11 @@ import { CabangModule } from './cabang/cabang.module';
 const infrastructureDatabaseModule = TypeOrmModule.forRootAsync({
   useClass: TypeOrmConfigService,
   dataSourceFactory: async (options: DataSourceOptions) => {
-    return new DataSource(options).initialize();
+    return new DataSource({
+      ...options,
+      logging: true,
+      logger: 'advanced-console',
+    }).initialize();
   },
 });
 
@@ -44,7 +48,7 @@ const infrastructureDatabaseModule = TypeOrmModule.forRootAsync({
         facebookConfig,
         googleConfig,
       ],
-      envFilePath: ['.env'],
+      envFilePath: [`.env.${process.env.NODE_ENV}`, '.env'],
     }),
     infrastructureDatabaseModule,
     I18nModule.forRootAsync({

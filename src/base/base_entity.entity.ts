@@ -35,5 +35,5 @@ export abstract class BaseEntity {
     example: '2025-01-25 18:58:00',
     description: 'Tanggal Berubah',
   })
-  updatedTime: Date;
+  updatedAt: Date;
 }

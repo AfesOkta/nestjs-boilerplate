@@ -14,6 +14,7 @@ import {
 enum Environment {
   Development = 'development',
   Production = 'production',
+  DOCKER = 'docker',
   Test = 'test',
 }
 

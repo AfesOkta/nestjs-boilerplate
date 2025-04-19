@@ -1,4 +1,5 @@
 import 'dotenv/config';
+import { config as loadEnv } from 'dotenv-flow';
 import {
   ClassSerializerInterceptor,
   ValidationPipe,
@@ -45,7 +46,7 @@ async function bootstrap() {
 
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('docs', app, document);
-
+  loadEnv();
   await app.listen(configService.getOrThrow('app.port', { infer: true }));
 }
 void bootstrap();
