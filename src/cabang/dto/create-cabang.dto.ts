@@ -1,17 +1,18 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Transform } from 'class-transformer';
-import { lowerCaseTransformer } from '../../utils/transformers/lower-case.transformer';
+import { IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
 
 export class CreateCabangDto {
   @ApiProperty({ example: 'cabang1', type: String })
-  @Transform(lowerCaseTransformer)
-  cabang: string;
-  @ApiProperty({ example: '1', type: Number })
+  @IsNotEmpty()
+  @IsString()
+  name: string;
+
+  @ApiProperty({ example: 1 })
+  @IsOptional()
+  @IsNumber()
   createdBy: number;
-  @ApiProperty({ example: new Date(), type: Date })
+
+  @ApiProperty({ example: new Date() })
+  @IsOptional()
   createdAt: Date;
-  @ApiProperty({ example: '1', type: Number })
-  updatedBy: number;
-  @ApiProperty({ example: new Date(), type: Date })
-  updatedAt: Date;
 }

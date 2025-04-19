@@ -10,7 +10,7 @@ export class CabangRepository extends BaseRepository<Cabang> {
   }
 
   // Tambahkan metode custom jika diperlukan
-  async findByCabang(cabang: string): Promise<Cabang | null> {
-    return this.findOne({ where: { cabang } });
+  async findByCabang(name: string): Promise<Cabang | null> {
+    return this.findOne({ where: { name } });
   }
 }

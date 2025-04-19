@@ -10,6 +10,7 @@ import {
   SerializeOptions,
   HttpCode,
   HttpStatus,
+  Req,
 } from '@nestjs/common';
 import { CabangService } from './cabang.service';
 import { CreateCabangDto } from './dto/create-cabang.dto';
@@ -45,8 +46,11 @@ export class CabangController {
     groups: ['admin'],
   })
   @Post()
-  @HttpCode(HttpStatus.CREATED)
-  create(@Body() createCabangDto: CreateCabangDto) {
+  create(@Body() createCabangDto: CreateCabangDto, @Req() request: Request) {
+    console.log('DTO:', createCabangDto);
+    const userId = (request as any).user?.id; // Assuming `request.user` contains the session user
+    createCabangDto.createdBy = userId;
+    createCabangDto.createdAt = new Date();
     return this.cabangService.create(createCabangDto);
   }
 
@@ -96,7 +100,14 @@ export class CabangController {
     required: true,
     example: 1,
   })
-  update(@Param('id') id: string, @Body() updateCabangDto: UpdateCabangDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateCabangDto: UpdateCabangDto,
+    @Req() request: Request,
+  ) {
+    updateCabangDto.updatedBy = (request as any).user?.id; // Assuming `request.user` contains the session user
+    updateCabangDto.updatedAt = new Date();
+    console.log('DTO:', updateCabangDto);
     return this.cabangService.update(+id, updateCabangDto);
   }
 
