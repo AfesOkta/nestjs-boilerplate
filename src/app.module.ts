@@ -24,6 +24,7 @@ import { SessionModule } from './session/session.module';
 import { MailerModule } from './mailer/mailer.module';
 import { CabangModule } from './cabang/cabang.module';
 import { GudangModule } from './gudang/gudang.module';
+import { SatuanModule } from './database/seeds/relational/satuan/satuan.module';
 
 const infrastructureDatabaseModule = TypeOrmModule.forRootAsync({
   useClass: TypeOrmConfigService,
@@ -86,6 +87,7 @@ const infrastructureDatabaseModule = TypeOrmModule.forRootAsync({
     HomeModule,
     CabangModule,
     GudangModule,
+    SatuanModule,
   ],
 })
 export class AppModule {}

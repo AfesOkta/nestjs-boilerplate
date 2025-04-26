@@ -17,26 +17,4 @@ export class GudangRepository extends BaseRepository<Gudang> {
     });
     return gudang;
   }
-
-  async findByActived(actived: string): Promise<Gudang | null> {
-    const gudang = await this.findOne({
-      where: {
-        actived: actived,
-      },
-    });
-    return gudang;
-  }
-
-  async findByNameAndActived(
-    name: string,
-    actived: string,
-  ): Promise<Gudang | null> {
-    const gudang = await this.findOne({
-      where: {
-        name: name,
-        actived: actived,
-      },
-    });
-    return gudang;
-  }
 }

@@ -12,9 +12,16 @@ export class Gudang extends BaseEntity {
   name: string;
 
   @ApiProperty({
-    type: String,
-    example: 'Y',
+    type: Boolean,
+    example: 'True',
   })
-  @Column({ type: 'varchar', default: 'Y' })
-  actived: string;
+  @Column({ type: 'boolean', default: 'True' })
+  is_active: boolean;
+
+  @ApiProperty({
+    type: Boolean,
+    example: 'false',
+  })
+  @Column({ type: 'boolean', default: 'false' })
+  is_default: boolean;
 }

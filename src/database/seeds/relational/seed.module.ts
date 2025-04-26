@@ -9,12 +9,14 @@ import { StatusSeedModule } from './status/status-seed.module';
 import { UserSeedModule } from './user/user-seed.module';
 import databaseConfig from '../../config/database.config';
 import appConfig from '../../../config/app.config';
+import { GudangSeedModule } from './gudang/gudang-seed.module';
 
 @Module({
   imports: [
     RoleSeedModule,
     StatusSeedModule,
     UserSeedModule,
+    GudangSeedModule,
     ConfigModule.forRoot({
       isGlobal: true,
       load: [databaseConfig, appConfig],
