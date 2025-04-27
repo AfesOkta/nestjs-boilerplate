@@ -24,7 +24,7 @@ import { SessionModule } from './session/session.module';
 import { MailerModule } from './mailer/mailer.module';
 import { CabangModule } from './cabang/cabang.module';
 import { GudangModule } from './gudang/gudang.module';
-import { SatuanModule } from './database/seeds/relational/satuan/satuan.module';
+import { CurrencyModule } from './currency/currency.module';
 
 const infrastructureDatabaseModule = TypeOrmModule.forRootAsync({
   useClass: TypeOrmConfigService,
@@ -87,7 +87,7 @@ const infrastructureDatabaseModule = TypeOrmModule.forRootAsync({
     HomeModule,
     CabangModule,
     GudangModule,
-    SatuanModule,
+    CurrencyModule,
   ],
 })
 export class AppModule {}

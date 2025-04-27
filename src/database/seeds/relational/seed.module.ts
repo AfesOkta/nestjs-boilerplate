@@ -10,6 +10,7 @@ import { UserSeedModule } from './user/user-seed.module';
 import databaseConfig from '../../config/database.config';
 import appConfig from '../../../config/app.config';
 import { GudangSeedModule } from './gudang/gudang-seed.module';
+import { SatuanSeedModule } from './satuan/satuan-seed.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { GudangSeedModule } from './gudang/gudang-seed.module';
     StatusSeedModule,
     UserSeedModule,
     GudangSeedModule,
+    SatuanSeedModule,
     ConfigModule.forRoot({
       isGlobal: true,
       load: [databaseConfig, appConfig],

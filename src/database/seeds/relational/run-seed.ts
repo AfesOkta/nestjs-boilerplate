@@ -4,6 +4,7 @@ import { SeedModule } from './seed.module';
 import { StatusSeedService } from './status/status-seed.service';
 import { UserSeedService } from './user/user-seed.service';
 import { GudangSeedService } from './gudang/gudang-seed.service';
+import { SatuanSeedService } from './satuan/satuan-seed.service';
 
 const runSeed = async () => {
   const app = await NestFactory.create(SeedModule);
@@ -13,6 +14,7 @@ const runSeed = async () => {
   await app.get(StatusSeedService).run();
   await app.get(UserSeedService).run();
   await app.get(GudangSeedService).run();
+  await app.get(SatuanSeedService).run();
   await app.close();
 };
 
