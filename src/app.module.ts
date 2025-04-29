@@ -26,10 +26,9 @@ import { CabangModule } from './cabang/cabang.module';
 import { GudangModule } from './gudang/gudang.module';
 import { CurrencyModule } from './currency/currency.module';
 import { MerkModule } from './merk/merk.module';
-import { MerkModule } from './database/seeds/merk/merk.module';
-import { JenisService } from './jenis-seed/database/seeds/relational/jenis/jenis.service';
 import { JenisModule } from './jenis/jenis.module';
 import { GolonganModule } from './golongan/golongan.module';
+import { SatuanModule } from './satuan/satuan.module';
 
 const infrastructureDatabaseModule = TypeOrmModule.forRootAsync({
   useClass: TypeOrmConfigService,
@@ -96,7 +95,7 @@ const infrastructureDatabaseModule = TypeOrmModule.forRootAsync({
     MerkModule,
     JenisModule,
     GolonganModule,
+    SatuanModule,
   ],
-  providers: [JenisService],
 })
 export class AppModule {}
