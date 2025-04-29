@@ -20,7 +20,7 @@ export class UpdateMerkDto {
   @ApiProperty({ example: 1 })
   @IsOptional()
   @IsNumber()
-  updateddBy: number;
+  updatedBy: number;
 
   @ApiProperty({ example: new Date() })
   @IsOptional()

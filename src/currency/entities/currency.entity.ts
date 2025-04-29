@@ -1,6 +1,6 @@
 import { BaseEntity } from '../../base/base_entity.entity';
 import { ApiProperty } from '@nestjs/swagger';
-import { Column, Entity } from 'typeorm';
+import { Column, Decimal128, Entity } from 'typeorm';
 
 @Entity('currency')
 export class Currency extends BaseEntity {
@@ -17,11 +17,11 @@ export class Currency extends BaseEntity {
   @Column({ type: 'varchar', length: 255 })
   symbol: string;
   @ApiProperty({
-    type: Number,
+    type: Decimal128,
     example: 1,
   })
   @Column({ type: 'decimal', precision: 10, scale: 2 })
-  rate: number;
+  rate: Decimal128;
   @ApiProperty({
     type: Boolean,
     example: 'True',
