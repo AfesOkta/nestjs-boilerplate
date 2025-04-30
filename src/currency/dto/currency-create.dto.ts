@@ -18,10 +18,7 @@ export class CreateCurrencyDto {
   @IsOptional()
   @IsString()
   symbol?: string;
-
-  @ApiProperty({
-    example: 1,
-  })
+ 
   rate: Decimal128;
 
   @ApiProperty({

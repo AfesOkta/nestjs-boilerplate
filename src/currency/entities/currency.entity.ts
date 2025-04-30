@@ -16,10 +16,6 @@ export class Currency extends BaseEntity {
   })
   @Column({ type: 'varchar', length: 255 })
   symbol: string;
-  @ApiProperty({
-    type: Decimal128,
-    example: 1,
-  })
   @Column({ type: 'decimal', precision: 10, scale: 2 })
   rate: Decimal128;
   @ApiProperty({

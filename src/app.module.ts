@@ -88,7 +88,6 @@ const infrastructureDatabaseModule = TypeOrmModule.forRootAsync({
     SessionModule,
     MailModule,
     MailerModule,
-    HomeModule,
     CabangModule,
     GudangModule,
     CurrencyModule,
@@ -97,6 +96,7 @@ const infrastructureDatabaseModule = TypeOrmModule.forRootAsync({
     GolonganModule,
     SatuanModule,
     MerkModule,
+    HomeModule,    
   ],
 })
 export class AppModule {}
