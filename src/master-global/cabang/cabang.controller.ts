@@ -22,12 +22,12 @@ import {
   ApiParam,
   ApiTags,
 } from '@nestjs/swagger';
-import { Roles } from '../roles/roles.decorator';
-import { RoleEnum } from '../roles/roles.enum';
+import { Roles } from '../../roles/roles.decorator';
+import { RoleEnum } from '../../roles/roles.enum';
 import { AuthGuard } from '@nestjs/passport';
-import { RolesGuard } from '../roles/roles.guard';
+import { RolesGuard } from '../../roles/roles.guard';
 import { Cabang } from './entities/cabang.entity';
-import { InfinityPaginationResponse } from '../utils/dto/infinity-pagination-response.dto';
+import { InfinityPaginationResponse } from '../../utils/dto/infinity-pagination-response.dto';
 
 @ApiBearerAuth()
 @Roles(RoleEnum.admin)

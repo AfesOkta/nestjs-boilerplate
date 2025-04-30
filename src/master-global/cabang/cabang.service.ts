@@ -3,7 +3,7 @@ import { CreateCabangDto } from './dto/create-cabang.dto';
 import { UpdateCabangDto } from './dto/update-cabang.dto';
 import { Cabang } from './entities/cabang.entity';
 import { CabangRepository } from './infrastructure/persistence/cabang.repository';
-import { BaseService } from '../base/base_service.service';
+import { BaseService } from '../../base/base_service.service';
 
 @Injectable()
 export class CabangService extends BaseService<Cabang> {

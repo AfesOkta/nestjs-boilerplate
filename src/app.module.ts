@@ -22,7 +22,13 @@ import { DataSource, DataSourceOptions } from 'typeorm';
 import { AllConfigType } from './config/config.type';
 import { SessionModule } from './session/session.module';
 import { MailerModule } from './mailer/mailer.module';
-import { CabangModule } from './cabang/cabang.module';
+import { CabangModule } from './master-global/cabang/cabang.module';
+import { GudangModule } from './master-stock/gudang/gudang.module';
+import { CurrencyModule } from './master-global/currency/currency.module';
+import { MerkModule } from './master-stock/merk/merk.module';
+import { JenisModule } from './master-stock/jenis/jenis.module';
+import { GolonganModule } from './master-stock/golongan/golongan.module';
+import { SatuanModule } from './master-stock/satuan/satuan.module';
 
 const infrastructureDatabaseModule = TypeOrmModule.forRootAsync({
   useClass: TypeOrmConfigService,
@@ -82,8 +88,15 @@ const infrastructureDatabaseModule = TypeOrmModule.forRootAsync({
     SessionModule,
     MailModule,
     MailerModule,
-    HomeModule,
     CabangModule,
+    GudangModule,
+    CurrencyModule,
+    MerkModule,
+    JenisModule,
+    GolonganModule,
+    SatuanModule,
+    MerkModule,
+    HomeModule,    
   ],
 })
 export class AppModule {}
