@@ -29,6 +29,8 @@ import { MerkModule } from './master-stock/merk/merk.module';
 import { JenisModule } from './master-stock/jenis/jenis.module';
 import { GolonganModule } from './master-stock/golongan/golongan.module';
 import { SatuanModule } from './master-stock/satuan/satuan.module';
+import { ProductsTypeModule } from './master-stock/products-type/products-type.module';
+import { ProductsModule } from './master-stock/products/products.module';
 
 const infrastructureDatabaseModule = TypeOrmModule.forRootAsync({
   useClass: TypeOrmConfigService,
@@ -95,8 +97,9 @@ const infrastructureDatabaseModule = TypeOrmModule.forRootAsync({
     JenisModule,
     GolonganModule,
     SatuanModule,
-    MerkModule,
-    HomeModule,    
+    MerkModule,    
+    ProductsTypeModule,    
+    HomeModule, ProductsModule,
   ],
 })
 export class AppModule {}

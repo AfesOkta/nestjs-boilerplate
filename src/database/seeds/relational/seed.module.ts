@@ -15,6 +15,7 @@ import { CurrencySeedModule } from './currency/currency-seed.module';
 import { MerkSeedModule } from './merk/merk-seed.module';
 import { JenisSeedModule } from './jenis/jenis-seed.module';
 import { GolonganSeedModule } from './golongan/golongan-seed.module';
+import { ProductsTypeSeedModule } from './products-type/products-type-seed.module';
 
 @Module({
   imports: [
@@ -38,6 +39,7 @@ import { GolonganSeedModule } from './golongan/golongan-seed.module';
       },
     }),
     GolonganSeedModule,
+    ProductsTypeSeedModule,
   ],
 })
 export class SeedModule {}
