@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Currency } from '../../../../currency/entities/currency.entity';
+import { Currency } from '../../../../master-global/currency/entities/currency.entity';
 
 @Injectable()
 export class CurrencySeedService {

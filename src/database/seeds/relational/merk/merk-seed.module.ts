@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { MerkSeedService } from './merk-seed.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Merk } from '../../../../merk/enitites/merk.entity';
+import { Merk } from '../../../../master-stock/merk/enitites/merk.entity';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Merk])],

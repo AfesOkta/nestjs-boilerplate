@@ -1,8 +1,7 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
-
 import { GudangSeedService } from "./gudang-seed.service";
-import { Gudang } from "../../../../gudang/entities/gudang.entity";
+import { Gudang } from "../../../../master-stock/gudang/entities/gudang.entity";
 
 @Module({
     imports: [TypeOrmModule.forFeature([Gudang])],

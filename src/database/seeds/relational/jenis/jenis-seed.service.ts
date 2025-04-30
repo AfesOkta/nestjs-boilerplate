@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Jenis } from '../../../../jenis/entities/jenis.entity';
+import { Jenis } from '../../../../master-stock/jenis/entities/jenis.entity';
 
 @Injectable()
 export class JenisSeedService {

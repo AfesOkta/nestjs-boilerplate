@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Merk } from '../../../../merk/enitites/merk.entity';
+import { Merk } from '../../../../master-stock/merk/enitites/merk.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()

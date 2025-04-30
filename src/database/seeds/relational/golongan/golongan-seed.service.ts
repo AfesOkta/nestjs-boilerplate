@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Golongan } from '../../../../golongan/entities/golongan.entity';
+import { Golongan } from '../../../../master-stock/golongan/entities/golongan.entity';
 
 @Injectable()
 export class GolonganSeedService {
