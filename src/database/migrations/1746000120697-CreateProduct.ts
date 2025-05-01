@@ -9,8 +9,8 @@ export class CreateProduct1746000120697 implements MigrationInterface {
               "product_code" varchar(25) NULL,
               "product_name" varchar(250) NULL,
               "product_barcode" varchar(100) NULL,
-              "product_type" int8 NULL "relasi terhadap table type.id",
-              "product_unit" int8 NULL comment "relasi terhadap table satuan.id",
+              "product_type" int8 NULL,
+              "product_unit" int8 NULL,
               "product_purchase_price" decimal(10,0) NULL DEFAULT 0,
               "product_sales_price" decimal(10,0) NULL DEFAULT 0,
               "product_margin" decimal(10,0) NULL DEFAULT 0,
@@ -23,7 +23,10 @@ export class CreateProduct1746000120697 implements MigrationInterface {
               CONSTRAINT products_key PRIMARY KEY (id)
             );
             CREATE INDEX "idx_product_code_name_barcode"
-                ON "products" (product_code, product_name, product_barcode);`,
+                ON "products" (product_code, product_name, product_barcode);
+            
+            COMMENT ON COLUMN "products"."product_type" IS 'relasi terhadap table type.id';
+            COMMENT ON COLUMN "products"."product_unit" IS 'relasi terhadap table satuan.id';`,
           );
     }
 
