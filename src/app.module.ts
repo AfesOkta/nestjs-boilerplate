@@ -97,9 +97,10 @@ const infrastructureDatabaseModule = TypeOrmModule.forRootAsync({
     JenisModule,
     GolonganModule,
     SatuanModule,
-    MerkModule,    
-    ProductsTypeModule,    
-    HomeModule, ProductsModule,
+    MerkModule,
+    ProductsTypeModule,
+    ProductsModule,
+    HomeModule,
   ],
 })
 export class AppModule {}
