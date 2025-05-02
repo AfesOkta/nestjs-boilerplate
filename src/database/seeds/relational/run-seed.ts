@@ -8,6 +8,7 @@ import { SatuanSeedService } from './satuan/satuan-seed.service';
 import { CurrencySeedService } from './currency/currency-seed.service';
 import { JenisSeedService } from './jenis/jenis-seed.service';
 import { MerkSeedService } from './merk/merk-seed.service';
+import { ProductTypeSeedService } from './products-type/products-type-seed.service';
 
 const runSeed = async () => {
   const app = await NestFactory.create(SeedModule);
@@ -21,6 +22,7 @@ const runSeed = async () => {
   await app.get(CurrencySeedService).run();
   await app.get(MerkSeedService).run();
   await app.get(JenisSeedService).run();
+  await app.get(ProductTypeSeedService).run();
   await app.close();
 };
 

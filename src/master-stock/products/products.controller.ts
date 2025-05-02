@@ -19,99 +19,97 @@ import {
   ApiParam,
   ApiTags,
 } from '@nestjs/swagger';
-import { RoleEnum } from '../../roles/roles.enum';
 import { Roles } from '../../roles/roles.decorator';
+import { RoleEnum } from '../../roles/roles.enum';
 import { AuthGuard } from '@nestjs/passport';
 import { RolesGuard } from '../../roles/roles.guard';
-import { GolonganService } from './golongan.service';
-import { Golongan } from './entities/golongan.entity';
-import { CreatedGolonganDto } from './dto/created-golongan.dto';
+import { ProductsService } from './products.service';
+import { Product } from './entities/products.entity';
+import { CreatedProductDto } from './dto/created-product.dto';
 import { InfinityPaginationResponse } from '../../utils/dto/infinity-pagination-response.dto';
-import { UpdatedGolonganDto } from './dto/updated-golongan.dto';
+import { UpdatedProductDto } from './dto/updated-product.dto';
 
 @ApiBearerAuth()
-@Roles(RoleEnum.admin)
+@Roles(RoleEnum.admin, RoleEnum.user) // Pass the roles as separate arguments
 @UseGuards(AuthGuard('jwt'), RolesGuard)
-@ApiTags('Golongan')
+@ApiTags('Products')
 @Controller({
-  path: 'golongan',
+  path: 'products',
   version: '1',
 })
-export class GolonganController {
-  constructor(private readonly golonganService: GolonganService) {}
+export class ProductsController {
+  constructor(private readonly productService: ProductsService) {}
+
   @ApiCreatedResponse({
-    type: Golongan,
+    type: Product,
   })
   @SerializeOptions({
-    groups: ['admin'],
+    groups: ['admin', 'user'],
   })
   @Post()
-  create(
-    @Body() createGolonganDto: CreatedGolonganDto,
-    @Req() request: Request,
-  ) {
-    console.log('DTO:', createGolonganDto);
+  create(@Body() createProductDto: CreatedProductDto, @Req() request: Request) {
+    console.log('DTO:', createProductDto);
     const userId = (request as any).user?.id; // Assuming `request.user` contains the session user
-    createGolonganDto.createdBy = userId;
-    createGolonganDto.createdAt = new Date();
-    return this.golonganService.create(createGolonganDto);
+    createProductDto.createdBy = userId;
+    createProductDto.createdAt = new Date();
+    return this.productService.create(createProductDto);
   }
 
   @ApiOkResponse({
-    type: InfinityPaginationResponse(Golongan),
+    type: InfinityPaginationResponse(Product),
   })
   @SerializeOptions({
-    groups: ['admin'],
+    groups: ['admin', 'user'],
   })
   @Get()
   @HttpCode(HttpStatus.OK)
   findAll() {
-    return this.golonganService.findAll();
+    return this.productService.findAll();
   }
 
   @ApiOkResponse({
-    type: Golongan,
+    type: Product,
   })
   @SerializeOptions({
-    groups: ['admin'],
+    groups: ['admin', 'user'],
   })
   @Get(':id')
   @HttpCode(HttpStatus.OK)
   @ApiParam({
     name: 'id',
-    description: 'ID of the Golongan',
+    description: 'ID of the Product',
     type: 'number',
     required: true,
     example: 1,
   })
   findOne(@Param('id') id: string) {
-    return this.golonganService.findOne(+id);
+    return this.productService.findOne(+id);
   }
 
   @ApiOkResponse({
-    type: Golongan,
+    type: Product,
   })
   @SerializeOptions({
-    groups: ['admin'],
+    groups: ['admin', 'user'],
   })
   @Patch(':id')
   @HttpCode(HttpStatus.OK)
   @ApiParam({
     name: 'id',
-    description: 'ID of the Golongan',
+    description: 'ID of the Product',
     type: 'number',
     required: true,
     example: 1,
   })
   update(
     @Param('id') id: string,
-    @Body() updateGolonganDto: UpdatedGolonganDto,
+    @Body() updateProductDto: UpdatedProductDto,
     @Req() request: Request,
   ) {
-    updateGolonganDto.updatedBy = (request as any).user?.id; // Assuming `request.user` contains the session user
-    updateGolonganDto.updatedAt = new Date();
-    console.log('DTO:', updateGolonganDto);
-    return this.golonganService.update(+id, updateGolonganDto);
+    updateProductDto.updatedBy = (request as any).user?.id; // Assuming `request.user` contains the session user
+    updateProductDto.updatedAt = new Date();
+    console.log('DTO:', updateProductDto);
+    return this.productService.update(+id, updateProductDto);
   }
 
   @Delete(':id')
@@ -122,6 +120,6 @@ export class GolonganController {
   })
   @HttpCode(HttpStatus.NO_CONTENT)
   remove(@Param('id') id: string) {
-    return this.golonganService.remove(+id);
+    return this.productService.remove(+id);
   }
 }
