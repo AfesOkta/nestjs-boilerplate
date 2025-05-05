@@ -32,6 +32,7 @@ import { SatuanModule } from './master-stock/satuan/satuan.module';
 import { ProductsTypeModule } from './master-stock/products-type/products-type.module';
 import { ProductsModule } from './master-stock/products/products.module';
 import { PelangganModule } from './master-ar/pelanggan/pelanggan.module';
+import { SupplierModule } from './module-ap/supplier/supplier.module';
 
 const infrastructureDatabaseModule = TypeOrmModule.forRootAsync({
   useClass: TypeOrmConfigService,
@@ -102,6 +103,7 @@ const infrastructureDatabaseModule = TypeOrmModule.forRootAsync({
     ProductsTypeModule,
     ProductsModule,
     PelangganModule,
+    SupplierModule,
     HomeModule,
   ],
 })
